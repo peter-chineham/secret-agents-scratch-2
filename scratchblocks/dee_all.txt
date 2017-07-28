@@ -1,0 +1,25 @@
+when I receive [complete v]
+decrypt :: custom
+say (decoded)
+
+define get_decrypted
+set [decrypted v] to ((index) - (item (position) of [otp v] :: list))
+if <(decrypted) < [1]> then 
+  set [decrypted v] to ((decrypted) + (26))
+end
+
+define decrypt
+set [decoded v] to []
+set [position v] to [1]
+repeat (length of (ciphertext)) 
+  set [character v] to (letter (position) of (ciphertext))
+  if <[alphabet v] contains (character) ?> then 
+    broadcast [get_index v] and wait
+    get_decrypted :: custom
+    set [decoded v] to (join (decoded) (item (decrypted) of [alphabet v] :: list))
+    change [position v] by (1)
+  else 
+    say [ciphertext contains character not in the alphabet!] for (2) secs
+    stop [all v]
+  end
+end
