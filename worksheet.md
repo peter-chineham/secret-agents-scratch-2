@@ -1,4 +1,4 @@
-# Secret Agents #
+# Secret Agents Scratch 2
 
 In this project you will learn how to make an uncrackable code to send short messages between two secret agents! You will learn:
 
@@ -35,7 +35,7 @@ Therefore, **help** is encoded as **RINB** and this is what you send. To decode,
 
 Make sure you understand the principle of this as it will be hard to **debug** your code if you don't understand what it is trying to do!
 
-## Prepare Stage ##
+## Prepare Stage
 
 1. Delete the cat sprite, and choose two sprites to be the two secret agents. I have chosen __Abby__ as the sender and __Dee__ as the receiver, but you can choose whoever, or whatever, you prefer.
 
@@ -47,7 +47,7 @@ Make sure you understand the principle of this as it will be hard to **debug** y
 
 1. Save your project as **secret agents**.
 
-## Create the One Time Pad (OTP) using Random Numbers ##
+## Create the One Time Pad (OTP) using Random Numbers
 
 The One Time Pad, which I will refer to as **OTP** from now on, is the code as I explained above. It is needed by *both* the sender and receiver, but without it the code is impossible to crack.
 
@@ -81,7 +81,7 @@ The One Time Pad, which I will refer to as **OTP** from now on, is the code as I
 
 1. Save your project.
 
-## Get the Message You Want to Send (the "plaintext") ##
+## Get the Message You Want to Send (the "plaintext")
 
 1. Create a new block called **get\_plaintext** (as you did for generate\_otp).
 
@@ -99,15 +99,15 @@ The One Time Pad, which I will refer to as **OTP** from now on, is the code as I
 
 1. Click the green flag to start the program. The OTP will be made as before then you will be asked what message you want to send. Type a short message then press *ENTER*.
 
-## Check that the Message is Valid ##
+## Check that the Message is Valid
 
 A snag with the **get\_plaintext** code is that it does not check that the message you have typed is valid. It needs to have a maximum length of 10 characters (as this is the size of the OTP) and must be all letters.
 
-### Change 1: Say That Only Letters Are Allowed ###
+### Change 1: Say That Only Letters Are Allowed
 
 The simplest thing we can do is to change the question being asked - remind the user only to use only letters. For example, **What is your message? (Use only letters)**.
 
-### Change 2: Check the Length of The Message ###
+### Change 2: Check the Length of The Message
 
 This is also quite easy as we can use the *length* of the *answer* variable to check this. If the length is greater than 10, then we give an error message and stop the project.
 
@@ -115,7 +115,7 @@ This is also quite easy as we can use the *length* of the *answer* variable to c
 
 1. Save your project.
 
-### Change 3: Check That Only Letters Have Been Used ###
+### Change 3: Check That Only Letters Have Been Used
 
 This is more complicated as we have to find a way of quickly checking that each character of the message is a letter in the alphabet.
 
@@ -160,7 +160,7 @@ This is more complicated as we have to find a way of quickly checking that each 
 
 We now have a robust version of **get\_plaintext** which makes sure that only a valid message is used in our program. This means we don't have to check for this again anywhere else.
 
-## Find the Number of a Letter ##
+## Find the Number of a Letter
 
 You can probably make sense of what I mean by *G + 3 = J* because you know what the alphabet is, but a computer doesn't! So the purpose of this step is to have a way of turning a letter like *G* into a number (7 in this case). We will need to do this many times but the *alphabet* list we have already created will help with this.
 
@@ -176,7 +176,7 @@ This function will be needed by **both** secret agents, so we cannot use a *cust
 
 1. Save your project.
 
-## Encrypt the Message ##
+## Encrypt the Message
 
 Now we can write the code needed to convert our message into apparent gibberish using the OTP code.
 
@@ -188,7 +188,7 @@ Now we can write the code needed to convert our message into apparent gibberish 
  
 1. Make a new block **encrypt**.
 
-### Check the get_index Code is Working Correctly ###
+### Check the get_index Code is Working Correctly
 
 1. First we will write just enough to make sure our *get_index* code works correctly. Beware that you need to set *ciphertext* to blank and **not** a space. This extracts each character in the message, turns it into a number of the alphabet, then tells you the character and number.
 
@@ -200,7 +200,7 @@ Now we can write the code needed to convert our message into apparent gibberish 
 
 1. Test the program with the message **help** and you should see **h8**, **e5**, **l12**, **p16**.
 
-### Add the Encryption Code ###
+### Add the Encryption Code
 
 Now we can put in the code to encrypt the message as I described at the start of this project. If I take our earlier example P + 12 = 16 + 12 = 28, there is no such letter. However, the alphabet can be treated as a circle easily if we use **modulo 26** arithmetic, but this needs to have the letters of the alphabet numbered 0 to 25 as shown below - not 1 to 26 as used in a Scratch list.
 
@@ -246,7 +246,7 @@ Now you can finish off the encrypt code...
 
 1. Save your project.
 
-## Decrypt the Message ##
+## Decrypt the Message
 
 1. Change to the scripts of the second sprite (Dee in my case).
 
@@ -278,7 +278,7 @@ Now you can finish off the encrypt code...
 
 	**Note** Your *coded* message will **not** be the same as mine because you will be using a different OTP code.
 
-## Challenge: Making Sense of Decoded Messages ##
+## Challenge: Making Sense of Decoded Messages
 
 Imagine you are a secret agent and have received this message:
 
@@ -288,7 +288,7 @@ Imagine you are a secret agent and have received this message:
 
 - This is a famous message sent in 1805. Do you know where and/or by whom?
 
-## Transmitting the Message ##
+## Transmitting the Message
 
 At the moment, the message has magically arrived at the second agent (Dee in my case) and been decoded. But how did it get there? Most likely it was sent by radio, which is why it had to be sent in code so that if anyone else picked it up then all they would have is gibberish.
 
@@ -333,7 +333,15 @@ So we will add a step to our project so that once we have encoded the message re
 
 **Note:** You may want to increase the *rest for 0.5 beats* block to have a longer space between letters to give you time to check that the code is being transmitted correctly.   
 
-## Send Morse via Raspberry Pi GPIO ##
+## Challenge: Allowing Longer Messages
+
+In the version so far, the messages have been limited to 10 letters because the OTP was created with 10 entries. We also check the message length when asking for the message.
+
+1. Change the project so that a longer message can be sent. You only need to make **two** changes to do so.
+
+1. Change the numbers changed above to use a variable **message\_size** instead. Remember to initialise it to the length you want at the start of the main program.
+
+## Send Morse via Raspberry Pi GPIO
 
 If you are running this project on a Raspberry Pi, you can easily modify the project so that instead of using an instrument in Scratch to play the Morse code, you control a GPIO pin on the Raspberry Pi to flash a LED or sound a buzzer.
 
