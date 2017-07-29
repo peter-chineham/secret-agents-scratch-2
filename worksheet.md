@@ -296,7 +296,7 @@ The image below shows the __Morse Code__, which was invented by Samuel Morse in 
 
 ![Morse Code](images/secretagents-morse.png)
 
-The Morse Code is not secret, like our One Time Pad code, but used internationally to turn letters into a series of dots and dashes. A dot is a short "dit" and a dash a longer "dah". The encoded message can be sent using Morse Code because even if someone else picks it up it doesn't make sense. For example, in my simple case above they would receive **ZKDCB** rather than *HELLO*. 
+The Morse Code is not secret but used internationally to turn letters into a series of dots and dashes. A dot is a short "dit" and a dash a longer "dah". The encoded message can be sent using Morse Code because even if someone else picks it up it doesn't make sense. For example, in my simple case above they would receive **ZKDCB** rather than *HELLO*. 
 
 Warships still use Morse Code today to transmit messages using a bright light over short distances. Radio amateurs also use it to communicate over very long distances with each other - even when very faint and crackly the Morse code beeps can still be picked out. The distress call made from the sinking __RMS Titanic__ in 1912 was sent by radio using Morse Code.
 
