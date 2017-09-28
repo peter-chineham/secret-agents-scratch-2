@@ -6,4 +6,4 @@ Unless otherwise specified, everything in this repository is covered by the foll
 
 ***Secret Agents Scratch 2*** is licenced under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-Based on a work at https://github.com/peter-chineham/secret-agents-scratch_2
+Based on a work at https://github.com/peter-chineham/secret-agents-scratch-2
